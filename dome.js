@@ -62,12 +62,61 @@
 // secondItem.style.backgroundColor='green';
 // var thirdItem=document.querySelector('.list-group-item:nth-child(3)');
 //thirdItem.style.display='none';
-var listItem=document.querySelectorAll('.list-group-item');
-listItem[1].getElementsByClassName.color="green";
-var oddItems=document.querySelectorAll('.list-group-item:nth-child(odd)');
-for(var i=0; i<oddItems.length;i++){
-    oddItems[i].style.backgroundColor='green';
-}
+// var listItem=document.querySelectorAll('.list-group-item');
+// listItem[1].getElementsByClassName.color="green";
+// var oddItems=document.querySelectorAll('.list-group-item:nth-child(odd)');
+// for(var i=0; i<oddItems.length;i++){
+//     oddItems[i].style.backgroundColor='green';
+// }
+//Trasversing the parentnode,childnode and siblingnode//
+var itemList=document.querySelector('#items');
+//parentelement
+console.log(itemList.parentElement);
+itemList.parentElement.style.backgroundColor="yellow";
+//lastChild
+console.log(itemList.lastChild);
+//lastElementChild
+console.log(itemList.lastElementChild);
+//firstChild
+console.log(itemList.firstChild);
+//firstElementChild
+console.log(itemList.firstElementChild);
+itemList.firstElementChild.textContent="Hello 1";
+//nextSibling
+console.log(itemList.nextSibling);
+//nextElementSibling
+console.log(itemList.nextElementSibling);
+//previousSibling
+console.log(itemList.previousSibling);
+//previousElementSibling
+console.log(itemList.previousElementSibling);
+//createElement
+//create a div
+var newDiv=document.createElement('div');
+newDiv.className='hello';
+newDiv.id='hello1';
+newDiv.setAttribute('title','Hello Div');
+//create textnode
+var newDivText=document.createTextNode('Hello World');
+//Add text to div
+newDiv.appendChild(newDivText);
+//add Hello world before itemlister
+var container=document.querySelector('header .container');
+console.log(container);
+var h1=document.querySelector('header h1');
+container.insertBefore(newDiv,h1);
+newDiv.style.fontSize='30px';
+console.log(newDiv);
+//add Hello world before item 1
+var ulList=document.querySelector('ul ');
+console.log(ulList);
+var item1=document.querySelector('ul li:nth-child(1)');
+console.log(item1);
+ulList.insertBefore(newDiv,item1);
+
+
+
+
 
 
 
