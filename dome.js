@@ -12,8 +12,8 @@
 // console.log(document.images);
 //Get element by Id//
 //console.log(document.getElementById('header-title'));
- var headert=document.getElementById('header-title');
- var header =document.getElementById('main-header');
+ //var headert=document.getElementById('header-title');
+ //var header =document.getElementById('main-header');
  console.log(headert.innerText);
   //headert.textContent="hello";
   //headert.innerText="goodbye";
