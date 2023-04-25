@@ -1,9 +1,10 @@
 let forms=document.getElementById('my-forms');
 
 
-
+var div=document.getElementById('li-item');
 forms.addEventListener('submit',userInput);
 var i=0;
+var x;
 function userInput(e){
     e.preventDefault();
   var name=document.getElementById('name').value;
@@ -24,13 +25,29 @@ function userInput(e){
     dates:document.querySelector('.datee').value,
     Time:time,
     }
-    i=i+1;
+    var li=document.createElement('li');
+    li.appendChild(document.createTextNode(`${name} ${email} ${phone} ${date} ${time}`));
+    var btn=document.createElement('button');
+    
+    btn.id='btn1';
+    btn.className="btn btn-danger btn-sm float-right delete";
+    btn.appendChild(document.createTextNode('Delete'));
+    x=btn;
+    li.appendChild(btn);
+    div.appendChild(li);
+
+    i=localStorage.length+1;
     let obj=JSON.stringify(userDetails);
 
         localStorage.setItem('userDetails'+i,obj);
         
-        
+        console.log(localStorage.length);
        
+   }
+   btn.addEventListener('click',removeItem);
+   function removeItem(e){
+   localStorage.removeItem('userDetails'+localStorage.length);
+   div.removeChild(e.target.parentElement);
    }
    
 }
