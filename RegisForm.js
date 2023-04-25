@@ -3,23 +3,34 @@ let forms=document.getElementById('my-forms');
 
 
 forms.addEventListener('submit',userInput);
+var i=0;
 function userInput(e){
     e.preventDefault();
-    let Name=document.getElementById('name').value;
-    let email=document.getElementById('mail').value;
-    let phone=document.getElementById('phone').value;
-    let date=document.querySelector('.datee').value;
-    let time=document.querySelector('.timee').value;
+  var name=document.getElementById('name').value;
+  var email=document.getElementById('mail').value;
+  var phone=document.getElementById('phone').value;
+  var date=document.querySelector('.datee').value;
+  var time=document.querySelector('.timee').value;
     console.log(document.typeOf);
-   if(Name===''||email===''||phone==''||date===''||time===''){
+   if(name===''||email===''||phone==''||date===''||time===''){
     alert("please enter all fields values");
    }
    else{
-        localStorage.setItem('Name',Name);
-        localStorage.setItem('Email',email);
-        localStorage.setItem('Phone',phone);
-        localStorage.setItem('Date',date);
-        localStorage.setItem('Time',time);
+    //local storage for storing object of user detais
+  var userDetails={
+    Name:document.getElementById('name').value,
+    Email:document.getElementById('mail').value,
+    Phone:document.getElementById('phone').value,
+    dates:document.querySelector('.datee').value,
+    Time:time,
+    }
+    i=i+1;
+    let obj=JSON.stringify(userDetails);
+
+        localStorage.setItem('userDetails'+i,obj);
+        
+        
+       
    }
    
 }
